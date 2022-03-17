@@ -1,0 +1,22 @@
+{
+  "extends": ["config:base", ":preserveSemverRanges", "group:allNonMajor"],
+  "assignees": ["mheob"],
+  "reviewers": ["mheob"],
+  "labels": ["📌 dependencies"],
+  "schedule": ["before 3am on Saturday"],
+  "npm": { "stabilityDays": 5 },
+  "commitMessagePrefix": "⬆️",
+  "commitMessageAction": "Upgrade",
+  "packageRules": [
+    {
+      "updateTypes": ["pin"],
+      "commitMessagePrefix": "📌",
+      "commitMessageAction": "Pin"
+    },
+    {
+      "updateTypes": ["rollback"],
+      "commitMessagePrefix": "⬇️",
+      "commitMessageAction": "Downgrade"
+    }
+  ]
+}

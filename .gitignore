@@ -1,0 +1,20 @@
+# Compiled and cached output
+.swc
+dist
+
+# Dependencies
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Misc
+coverage
+yarn-error.log
+
+# System Files
+.DS_Store
+Thumbs.db

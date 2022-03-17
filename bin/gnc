@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+const { cli } = require('../dist');
+const packageJSON = require('../package.json');
+
+const isValidNodeVersion = () => {
+  const currentNodeVersion = process.versions.node;
+  const semverMajorVersion = +currentNodeVersion.split('.')[0];
+  const minNodeVersion = +packageJSON.engines.node.slice(3, 4);
+
+  if (semverMajorVersion >= minNodeVersion) return true;
+
+  console.error(`You are running Node ${currentNodeVersion}.
+Create NextJS Components CLI requires Node ${minNodeVersion} or higher.
+Please update your version of Node.`);
+
+  return false;
+};
+
+if (!isValidNodeVersion()) {
+  process.exit(1);
+}
+
+cli(process.argv);

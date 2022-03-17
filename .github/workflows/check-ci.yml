@@ -1,0 +1,40 @@
+name: Check CI
+
+on:
+  push:
+    paths: ["src/**", "yarn.lock"]
+
+jobs:
+  check:
+    name: Check CI
+
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build tool
+        run: yarn build
+
+      - name: Lint code
+        run: yarn lint
+
+      # TODO: Add again after tests are created
+      # - name: Test code
+      #   run: yarn test
+
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v2.1.0
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
