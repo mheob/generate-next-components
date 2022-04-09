@@ -1,13 +1,12 @@
 version = 1
 
+test_patterns = [
+  "**/*_test.go"
+]
+
 [[analyzers]]
-name = "javascript"
+name = "go"
 enabled = true
 
   [analyzers.meta]
-  module_system = "commonjs"
-  environment = [
-    "nodejs",
-  ]
-
-  dialect = "typescript"
+  import_root = "github.com/mheob/generate-next-components"

@@ -16,31 +16,30 @@
   "repository": {
     "url": "https://github.com/mheob/generate-next-components"
   },
+  "funding": {
+    "url": "https://github.com/sponsors/mheob"
+  },
   "license": "MIT",
   "author": {
     "name": "Alexander Böhm",
     "email": "ab@its-boehm.de"
   },
   "main": "dist/index.js",
-  "bin": {
-    "generate-next-components": "./bin/gnc.js",
-    "gnc": "./bin/gnc.js"
-  },
+  "bin": "./bin/gnc.js",
   "files": [
     "bin",
     "dist",
     "README.md",
-    "CHANGELOG.md",
     "LICENSE"
   ],
   "scripts": {
-    "build": "swc src -d dist",
+    "build": "yarn clear:dist && swc src -d dist",
     "changeset": "changeset",
     "clear": "yarn clear:deps & yarn clear:dist",
     "clear:deps": "rimraf node_modules yarn.lock",
     "clear:dist": "rimraf dist",
     "deduplicate": "yarn dedupe --strategy highest",
-    "dev": "yarn build && node bin/gnc",
+    "dev": "yarn build && node bin/gnc.js",
     "format": "prettier --write **/*.{ts,json,md,yml}",
     "postinstall": "husky install",
     "lint": "eslint . --ext .ts",
@@ -55,35 +54,38 @@
     "yarn.lock": "yarn deduplicate"
   },
   "dependencies": {
-    "chalk": "^5.0.1",
-    "inquirer": "^8.2.1",
-    "yargs": "^17.3.1"
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.2",
+    "semver": "^7.3.5",
+    "yargs": "^17.4.0"
   },
   "devDependencies": {
     "@jest/types": "^27.5.1",
-    "@swc/cli": "^0.1.55",
-    "@swc/core": "^1.2.156",
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.162",
     "@swc/jest": "^0.2.20",
-    "@types/inquirer": "^8.2.0",
+    "@types/inquirer": "^8.2.1",
     "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.21",
-    "@types/yargs": "^17.0.9",
-    "@typescript-eslint/eslint-plugin": "^5.15.0",
-    "@typescript-eslint/parser": "^5.15.0",
-    "eslint": "^8.11.0",
+    "@types/node": "^17.0.23",
+    "@types/semver": "^7.3.9",
+    "@types/yargs": "^17.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-unicorn": "^42.0.0",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
-    "lint-staged": "^12.3.6",
+    "lint-staged": "^12.3.7",
     "pinst": "^3.0.0",
-    "prettier": "^2.6.0",
-    "prettier-plugin-jsdoc": "^0.3.31",
+    "prettier": "^2.6.1",
+    "prettier-plugin-jsdoc": "^0.3.36",
     "regenerator-runtime": "^0.13.9",
     "rimraf": "^3.0.2",
-    "typescript": "^4.6.2"
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
   },
   "engines": {
     "node": ">=16.13.0"

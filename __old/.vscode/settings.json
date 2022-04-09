@@ -1,9 +1,9 @@
 {
   // General editor settings
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
-    "source.fixAll": true
-  },
+  "editor.codeActionsOnSave": [
+    "source.organizeImports",
+    "source.fixAll"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // Programminug Languages
   "typescript.preferences.importModuleSpecifier": "project-relative",
@@ -17,3 +17,5 @@
   "eslint.nodePath": ".yarn/sdks",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js"
 }
+
+
